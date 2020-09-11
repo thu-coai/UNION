@@ -42,14 +42,14 @@ Execute the following command:
 
 ```shell
 python3 ./run_union.py --data_dir your_data_dir \
-											--output_dir ./model/union \
-											--task_name train \
-											--init_checkpoint ./model/uncased_L-12_H-768_A-12/bert_model.ckpt
+    --output_dir ./model/union \
+    --task_name train \
+    --init_checkpoint ./model/uncased_L-12_H-768_A-12/bert_model.ckpt
 ```
 
 `your_data_dir` is `./Data/ROCStories` or `./Data/WritingPrompts`.
 
-The initial checkpoint of BERT can be downloaded from https://github.com/google-research/bert. We use the base version of BERT ($\sim$110M parameters). We train the model for 40 steps at most. The training process will task about 1~2 days. 
+The initial checkpoint of BERT can be downloaded from https://github.com/google-research/bert. We use the base version of BERT (about 110M parameters). We train the model for 40 steps at most. The training process will task about 1~2 days. 
 
 
 
@@ -59,9 +59,9 @@ Execute the following command:
 
 ```shell
 python3 ./run_union.py --data_dir your_data_dir \
-											--output_dir ./model/output \
-											--task_name pred \
-											--init_checkpoint your_model_name
+    --output_dir ./model/output \
+    --task_name pred \
+    --init_checkpoint your_model_name
 ```
 
 `your_data_dir` is `./Data/ROCStories` or `./Data/WritingPrompts`, `your_model_name` is `./model/union_roc/union_roc` or `./model/union_wp/union_wp`. Then the union score of the stories under `your_data_dir/ant_data` can be found under the output_dir `./model/output`.
