@@ -49,7 +49,7 @@ python3 ./run_union.py --data_dir your_data_dir \
 
 `your_data_dir` is `./Data/ROCStories` or `./Data/WritingPrompts`.
 
-The initial checkpoint of BERT can be downloaded from https://github.com/google-research/bert. We use the base version of BERT (~110M parameters). We train the model for 40 steps at most. The training process will task about 1~2 days. 
+The initial checkpoint of BERT can be downloaded from https://github.com/google-research/bert. We use the base version of BERT ($\sim$110M parameters). We train the model for 40 steps at most. The training process will task about 1~2 days. 
 
 
 
