@@ -2,9 +2,7 @@
 
 This repository contains the source code and data samples for the paper ”UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation“.
 
-
-
-##Prerequisites
+## Prerequisites
 
 The code is written in TensorFlow library. To use the program the following prerequisites need to be installed.
 
