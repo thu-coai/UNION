@@ -1,0 +1,33 @@
+0 no
+0 not
+0 n't
+0 none
+0 never
+0 nobody
+0 nothing
+0 nowhere
+0 neither
+0 nobody
+0 hardly
+0 scarcely
+0 barely
+0 seldom
+0 cannot
+0 can 't
+0 may not
+0 would n't
+0 would not
+0 should n't
+0 should not
+0 do n't
+0 do not
+0 does 't
+0 dose not
+0 did n't
+0 did not
+0 is n't
+0 is not
+0 are n't
+0 are not
+0 was n't
+0 was not
