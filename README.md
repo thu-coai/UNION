@@ -1,14 +1,14 @@
 # UNION
 
-This repository contains the source code and data samples for the paper ”UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation“.
+Automatic Evaluation Metric described in the paper [UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation]() (EMNLP 2020).
 
 ## Prerequisites
 
 The code is written in TensorFlow library. To use the program the following prerequisites need to be installed.
 
 - Python 3.7.0
-- tensorflow-gpu==1.14.0
-- numpy ==1.18.1
+- tensorflow-gpu>=1.14.0
+- numpy>=1.18.1
 - regex==2.5.76
 
 ## Computing infrastructure
@@ -94,6 +94,4 @@ Then the correlation between the human judgements under  `your_data_dir/ant_data
   - `ini_data`: Original dataset for training/validation/testing. Besides,  `entity_vocab.txt` consists of all the entities and the corresponding tagged Part-Of-Speech followed by the mention frequency in the dataset.
   - `train_data`: Constructed negative samples and corresponding human-written stories for training.
   - `Metric output`: The scores of different metrics including `BLEU`/`MoverScore`/`RUBER-BERT`/`Perplexity`/`DisScore`/`UNION`/`UNION_Recon`, which can be used to replicate the correlation in Table 5 of the paper. `UNION_Recon` is the ablated model without the reconstruction task. And the sign of the result of Perplexity needs to be changed to get the result for *minus* Perplexity.
-
-Note: currently only 10 samples of the full original data and training data are provided. **The full data will be provided by cloud disks after the Anonymous period due to the large size.**
 
