@@ -87,7 +87,7 @@ Execute the following command:
 python3 ./correlation.py your_mode
 ```
 
-Then the correlation between the human judgements under  `your_data_dir/ant_data` and the scores of metrics under `your_data_dir/metric_output` will be output.
+Then the correlation between the human judgements under  `your_data_dir/ant_data` and the scores of metrics under `your_data_dir/metric_output` will be output. The figures under "./figure" show the score graph between metric scores and human judgments for `ROCStories corpus`.
 
 
 
