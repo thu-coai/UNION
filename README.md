@@ -9,7 +9,7 @@ The code is written in TensorFlow library. To use the program the following prer
 - Python 3.7.0
 - tensorflow-gpu>=1.14.0
 - numpy>=1.18.1
-- regex==2.5.76
+- regex>=2.5.76
 
 ## Computing infrastructure
 
