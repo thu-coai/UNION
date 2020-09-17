@@ -321,12 +321,17 @@ def convert_single_example(ex_index, example, label_list, max_seq_length,
   ref_input_ids, ref_input_mask = None, None
   if FLAGS.use_reconstruction:
     ref_input_ids = tokenizer.convert_tokens_to_ids(ref_tokens)
-    ref_input_mask = [0] * (tokens_a_ref_length[0]+1) + [1] * (len(ref_input_ids)-tokens_a_ref_length[0]-1)
+    if tokens_a_ref_length[0] < max_seq_length:
+      ref_input_mask = [0] * (tokens_a_ref_length[0]+1) + [1] * (len(ref_input_ids)-tokens_a_ref_length[0]-1)
+    else:
+      ref_input_mask = [0] * max_seq_length
+    while len(ref_input_ids) < max_seq_length:
+      ref_input_ids.append(0)
     while len(ref_input_mask) < max_seq_length:
       ref_input_mask.append(0)
-      ref_input_ids.append(0)
     if len(ref_input_ids) > max_seq_length:
       ref_input_ids = ref_input_ids[:max_seq_length]
+    if len(ref_input_mask) > max_seq_length:
       ref_input_mask = ref_input_mask[:max_seq_length]
 
   while len(input_ids) < max_seq_length:

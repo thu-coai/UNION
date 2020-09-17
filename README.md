@@ -1,6 +1,6 @@
 # UNION
 
-Automatic Evaluation Metric described in the paper [UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation]() (EMNLP 2020).
+Automatic Evaluation Metric described in the paper [UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation](https://arxiv.org/abs/2009.07602) (EMNLP 2020).
 
 ## Prerequisites
 
@@ -32,7 +32,10 @@ python3 ./get_vocab.py your_mode
 python3 ./gen_train_data.py your_mode
 ```
 
-`your_mode` is `roc` for `ROCStories corpus` or  `wp` for `WritingPrompts dataset`. Then the summary of vocabulary and the corresponding frequency and pos-tagging will be found under `ROCStories/ini_data/entitiy_vocab.txt` or `WritingPrompts/ini_data/entity_vocab.txt`. Then negative samples and human-written stories will be constructed based on the original training set. The training set will be found under `ROCStories/train_data` or `WritingPrompts/train_data`.
+- `your_mode` is `roc` for `ROCStories corpus` or  `wp` for `WritingPrompts dataset`. Then the summary of vocabulary and the corresponding frequency and pos-tagging will be found under `ROCStories/ini_data/entitiy_vocab.txt` or `WritingPrompts/ini_data/entity_vocab.txt`. 
+- Negative samples and human-written stories will be constructed based on the original training set. The training set will be found under `ROCStories/train_data` or `WritingPrompts/train_data`.
+- Note: currently only 10 samples of the full original data and training data are provided. The full data can be downloaded from [THUcloud](https://cloud.tsinghua.edu.cn/d/b3bdeee2c9b647439746/) or [GoogleDrive](https://drive.google.com/drive/folders/1Cfc-YkQo-27ovVug2bfpqBclECimvgwu?usp=sharing).
+
 
 
 
@@ -47,9 +50,8 @@ python3 ./run_union.py --data_dir your_data_dir \
     --init_checkpoint ./model/uncased_L-12_H-768_A-12/bert_model.ckpt
 ```
 
-`your_data_dir` is `./Data/ROCStories` or `./Data/WritingPrompts`.
-
-The initial checkpoint of BERT can be downloaded from https://github.com/google-research/bert. We use the base version of BERT (about 110M parameters). We train the model for 40 steps at most. The training process will task about 1~2 days. 
+- `your_data_dir` is `./Data/ROCStories` or `./Data/WritingPrompts`.
+- The initial checkpoint of BERT can be downloaded from [bert](https://github.com/google-research/bert). We use the uncased base version of BERT (about 110M parameters). We train the model for 40000 steps at most. The training process will task about 1~2 days. 
 
 
 
@@ -64,9 +66,16 @@ python3 ./run_union.py --data_dir your_data_dir \
     --init_checkpoint your_model_name
 ```
 
-`your_data_dir` is `./Data/ROCStories` or `./Data/WritingPrompts`, `your_model_name` is `./model/union_roc/union_roc` or `./model/union_wp/union_wp`. Then the union score of the stories under `your_data_dir/ant_data` can be found under the output_dir `./model/output`.
+- `your_data_dir` is `./Data/ROCStories` or `./Data/WritingPrompts`. If you want to evaluate your custom texts, you only need tp change your file format into ours. 
 
-**Note: The checkpoint for reproduction will be provided by cloud disks after the Anonymous period due to the large size.**
+-  `your_model_name` is `./model/union_roc/union_roc` or `./model/union_wp/union_wp`. The fine-tuned checkpoint can be downloaded from the following link:
+
+  | Dataset        | Fine-tuned Model                                             |
+  | -------------- | ------------------------------------------------------------ |
+  | ROCStories     | [THUcloud](https://cloud.tsinghua.edu.cn/d/23722540a7f944019427/); [GoogleDrive](https://drive.google.com/drive/folders/1T1SYM9OxPEsjpk2eGWot0iuyJbfIGmBM?usp=sharing) |
+  | WritingPrompts | [THUcloud](https://cloud.tsinghua.edu.cn/d/0154034b7a574d0498c9/); [GoogleDrive](https://drive.google.com/drive/folders/1Z6uYG4WQBR3jzZAykQGfAEHriWc8CA0l?usp=sharing) |
+
+- The union score of the stories under `your_data_dir/ant_data` can be found under the output_dir `./model/output`.
 
 
 
@@ -84,14 +93,58 @@ Then the correlation between the human judgements under  `your_data_dir/ant_data
 
 ## Data Instruction for files under `./Data`
 
-- `negation.txt`: Manually constructed negation word vocabulary.
-- `conceptnet_antonym.txt`: Triples with antonym relations extracted from ConceptNet.
-- `conceptnet_entity.csv`: Entities acquired from ConceptNet.
-- The full data for`ROCStories corpus` and  `WritingPrompts` can be found under `./ROCStories` and `./WritingPrompts`, respectively. The details for different directories and files are as follows:
-  - `ant_data`:
-    - `ant_data.txt` and `ant_data_all.txt`: Sampled stories and corresponding human annotation. `ant_data.txt` include only binary annotation for reasonable(1) or unreasonable(0). `ant_data_all.txt` include the annotation for specific error types (only available for `ROCStories corpus`): reasonable(0), repeated plots(1), bad coherence(2), conflicting logic(3), chaotic scenes(4), and others(5). The data are formatted as `Story ID ||| Story ||| Seven Annotated Scores`.
-    - `reference.txt`,`reference_ipt.txt` and `reference_opt.txt`: the human-written stories with the same leading context with annotated stories.
-  - `ini_data`: Original dataset for training/validation/testing. Besides,  `entity_vocab.txt` consists of all the entities and the corresponding tagged Part-Of-Speech followed by the mention frequency in the dataset.
-  - `train_data`: Constructed negative samples and corresponding human-written stories for training.
-  - `Metric output`: The scores of different metrics including `BLEU`/`MoverScore`/`RUBER-BERT`/`Perplexity`/`DisScore`/`UNION`/`UNION_Recon`, which can be used to replicate the correlation in Table 5 of the paper. `UNION_Recon` is the ablated model without the reconstruction task. And the sign of the result of Perplexity needs to be changed to get the result for *minus* Perplexity.
+```bash
+├── Data
+   └── `negation.txt`		# manually constructed negation word vocabulary.
+   └── `conceptnet_antonym.txt`		# triples with antonym relations extracted from ConceptNet.
+   └── `conceptnet_entity.csv`		# entities acquired from ConceptNet.
+   └── `ROCStories`
+       ├── `ant_data`		# sampled stories and corresponding human annotation.
+              ├── `ant_data.txt`		# include only binary annotation for reasonable(1) or unreasonable(0)
+              ├── `ant_data_all.txt`# include the annotation for specific error types: reasonable(0), repeated plots(1), bad coherence(2), conflicting logic(3), chaotic scenes(4), and others(5). 
+              ├── `reference.txt`		# human-written stories with the same leading context with annotated stories.
+              ├── `reference_ipt.txt`
+              ├── `reference_opt.txt`
+       ├── `ini_data`		# original dataset for training/validation/testing.
+              ├── `train.txt`
+              ├── `dev.txt`
+              ├── `test.txt`
+              ├── `entity_vocab.txt`		# generated by `get_vocab.py`, consisting of all the entities and the corresponding tagged POS followed by the mention frequency in the dataset.
+       ├── `train_data`		# negative samples and corresponding human-written stories for training, which are constructed by `gen_train_data.py`.
+              ├── `train_human.txt`
+              ├── `train_negative.txt`
+              ├── `dev_human.txt`
+              ├── `dev_negative.txt`
+              ├── `test_human.txt`
+              ├── `test_negative.txt`
+       ├── `metric_output`		# the scores of different metrics, which can be used to replicate the correlation in Table 5 of the paper. 
+              ├── `bleu.txt`
+              ├── `bleurt.txt`
+              ├── `ppl.txt`		# the sign of the result of Perplexity needs to be changed to get the result for *minus* Perplexity.
+              ├── `union.txt`
+              ├── `union_recon.txt`		# the ablated model without the reconstruction task
+              ├── ...
+   └── `WritingPrompts`
+       ├── ...
+ 
+```
 
+- The annotated data file `ant_data.txt` and `ant_data_all.txt` are formatted as `Story ID ||| Story ||| Seven Annotated Scores`.
+- `ant_data_all.txt` is only available for `ROCStories corpus`. It is the same with `ant_data.txt` for `WrintingPrompts dataset`. 
+
+
+
+### Citation
+
+Please kindly cite our paper if [this paper](https://arxiv.org/abs/2009.07602) and the [code](https://github.com/thu-coai/UNION) are helpful.
+
+```
+@misc{guan2020union,
+    title={UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation},
+    author={Jian Guan and Minlie Huang},
+    year={2020},
+    eprint={2009.07602},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+```
