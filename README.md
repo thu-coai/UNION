@@ -130,7 +130,7 @@ Then the correlation between the human judgements under  `your_data_dir/ant_data
 ```
 
 - The annotated data file `ant_data.txt` and `ant_data_all.txt` are formatted as `Story ID ||| Story ||| Seven Annotated Scores`.
-- `ant_data_all.txt` is only available for `ROCStories corpus`. It is the same with `ant_data.txt` for `WrintingPrompts dataset`. 
+- `ant_data_all.txt` is only available for `ROCStories corpus`. `ant_data_all.txt` is the same with `ant_data.txt` for `WrintingPrompts dataset`. 
 
 
 
