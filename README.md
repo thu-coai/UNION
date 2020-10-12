@@ -6,13 +6,13 @@ Automatic Evaluation Metric described in the paper [UNION: An Unreferenced Metri
 
 ### Contents
 
-* [Prerequisites](#0-prerequisites)
-* [Computing infrastructure](#computing-infrastructure)
+* [Prerequisites](#prerequisites)
+* [Computing Infrastructure](#computing-infrastructure)
 * [Quick Start](#quick-start)
   * [1 Constructing Negative Samples](#1-constructing-negative-samples)
   * [2 Training of UNION](#2-training-of-union) 
   * [3 Prediction of UNION](#3-prediction-with-union)
-  * [4 correlation calculation](#4-correlation-calculation)
+  * [4 Correlation Calculation](#4-correlation-calculation)
 * [Data Instruction](#data-instruction-for-files-under-data)
 * [Citation](#citation)
 
@@ -29,7 +29,7 @@ The code is written in TensorFlow library. To use the program the following prer
 
 
 
-## Computing infrastructure
+## Computing Infrastructure
 
 We train UNION based on the platform: 
 
