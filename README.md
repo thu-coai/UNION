@@ -93,7 +93,7 @@ Then the correlation between the human judgements under  `your_data_dir/ant_data
 
 ## Data Instruction for files under `./Data`
 
-```bash
+```markdown
 ├── Data
    └── `negation.txt`             # manually constructed negation word vocabulary.
    └── `conceptnet_antonym.txt`   # triples with antonym relations extracted from ConceptNet.
