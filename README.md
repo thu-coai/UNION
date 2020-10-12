@@ -1,6 +1,6 @@
 # UNION
 
-Automatic Evaluation Metric described in the paper [UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation](https://arxiv.org/abs/2009.07602) (EMNLP 2020).
+Automatic Evaluation Metric described in the paper [UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation](https://arxiv.org/abs/2009.07602) (EMNLP 2020). Please refer to the [paper list](https://github.com/thu-coai/PaperForONLG) for more information about open-ended language generation tasks. Hopefully it will help you know more about this field.
 
 ## Prerequisites
 
