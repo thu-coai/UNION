@@ -2,6 +2,22 @@
 
 Automatic Evaluation Metric described in the paper [UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation](https://arxiv.org/abs/2009.07602) (EMNLP 2020). Please refer to the [paper list](https://github.com/thu-coai/PaperForONLG) for more information about open-ended language generation tasks. Hopefully it will help you know more about this field.
 
+
+
+### Contents
+
+* [Prerequisites](#0-prerequisites)
+* [Computing infrastructure](#computing-infrastructure)
+* [Quick Start](#quick-start)
+  * [1 Constructing Negative Samples](#1-constructing-negative-samples)
+  * [2 Training of UNION](#2-training-of-union) 
+  * [3 Prediction of UNION](#3-prediction-with-union)
+  * [4 correlation calculation](#4-correlation-calculation)
+* [Data Instruction](#data-instruction-for-files-under-data)
+* [Citation](#citation)
+
+
+
 ## Prerequisites
 
 The code is written in TensorFlow library. To use the program the following prerequisites need to be installed.
@@ -10,6 +26,8 @@ The code is written in TensorFlow library. To use the program the following prer
 - tensorflow-gpu>=1.14.0
 - numpy>=1.18.1
 - regex>=2.5.76
+
+
 
 ## Computing infrastructure
 
