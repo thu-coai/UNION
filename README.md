@@ -1,8 +1,8 @@
 # UNION
 
-![](https://img.shields.io/github/last-commit/thu-coai/PaperForONLG?color=blue) 
+![](https://img.shields.io/github/last-commit/thu-coai/UNION?color=blue) 
 
-Automatic Evaluation Metric described in the paper [UNION: An Unreferenced Metric for Evaluating Open-ended Story Generation](https://arxiv.org/abs/2009.07602) (EMNLP 2020). Please refer to the [Paper List](https://github.com/thu-coai/PaperForONLG) for more information about open-ended language generation tasks. Hopefully it will help you know more about this field.
+Automatic Evaluation Metric described in the paper [UNION: An **UN**referenced Metr**I**c for Evaluating **O**pen-e**N**ded Story Generation](https://arxiv.org/abs/2009.07602) (EMNLP 2020). Please refer to the [Paper List](https://github.com/thu-coai/PaperForONLG) for more information about **O**pen-e**N**ded **L**anguage **G**eneration (ONLG) tasks. Hopefully the paper list will help you know more about this field.
 
 
 
