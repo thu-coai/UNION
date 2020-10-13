@@ -25,9 +25,10 @@ Automatic Evaluation Metric described in the paper [UNION: An **UN**referenced M
 The code is written in TensorFlow library. To use the program the following prerequisites need to be installed.
 
 - Python 3.7.0
-- tensorflow-gpu>=1.14.0
-- numpy>=1.18.1
-- regex>=2020.2.20
+- tensorflow-gpu 1.14.0
+- numpy 1.18.1
+- regex 2020.2.20
+- nltk 3.4.5
 
 
 
